@@ -10,25 +10,16 @@
  */
 
 ?>
-
-	</div><!-- #content -->
-
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'player-theme' ) ); ?>"><?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'player-theme' ), 'WordPress' );
-			?></a>
-			<span class="sep"> | </span>
-			<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'player-theme' ), 'player-theme', '<a href="https://automattic.com/">Underscores.me</a>' );
-			?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
-
+    <footer class="container main-footer">
+        <div class="row">
+            <div class="col-12">
+                <p>
+                    © 2017 <a href="<?php echo site_url(); ?>>">Player theme</a> by Fernando López.
+                </p>
+            </div>
+        </div>
+    </footer>
+</div>
 <?php wp_footer(); ?>
-
 </body>
 </html>

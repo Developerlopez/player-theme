@@ -17,6 +17,11 @@ body {
   background-color: #d4d4d4;
   margin: 0;
   font-family: Arial, sans-serif;
+  font-size: 16px;
+  a {
+    color: #2a5885;
+
+  }
 }
 // Header
 .main-header {
@@ -150,5 +155,11 @@ body {
     top: 0;
 
   }
+}
+// Footer
+.main-footer {
+  font-size: 14px;
+  color: lighten(black, 20);
+  padding-bottom: 70px;
 }
 

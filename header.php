@@ -60,4 +60,4 @@
                 </div>
             </nav>
         </transition>
-	</div>
+
