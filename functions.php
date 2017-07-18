@@ -117,8 +117,6 @@ add_action( 'widgets_init', 'player_theme_widgets_init' );
  * Enqueue scripts and styles.
  */
 function player_theme_scripts() {
-	wp_enqueue_style( 'player-theme-style', get_stylesheet_uri() );
-
 	wp_enqueue_script( 'player-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'player-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
@@ -126,6 +124,13 @@ function player_theme_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+	// Libraries and frameworks.
+    wp_enqueue_script( 'vue-js', get_stylesheet_directory_uri() . '/js/vue.js', array(), '2.4.0', true);
+    // wp_enqueue_script( 'vue-min-js', get_stylesheet_directory_uri() . '/js/vue.js', array(), '2.4.0', true);
+
+	// Player themes's scripts and styles.
+	wp_enqueue_style( 'player-theme-style', get_template_directory_uri() . '/css/style.css', array(), '1.0.0', 'all' );
+	wp_enqueue_script( 'player-theme-script', get_stylesheet_directory_uri() . '/js/script.js', array(), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'player_theme_scripts' );
 

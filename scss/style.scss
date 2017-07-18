@@ -1,0 +1,154 @@
+// Bootstrap v4.0.0-alpha.6 grid system
+@import "vendor/bootstrap/bootstrap-grid";
+// Fontawesome v4.7.0
+@import "vendor/fontawesome/font-awesome";
+// Mixins, variables and animations
+@import "mixins";
+@import "animations";
+// 1. General Styles
+// Helpers
+.hidden-xs {
+  @media all and (max-width: 576px) {
+    display: none;
+  }
+}
+// Body
+body {
+  background-color: #d4d4d4;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+// Header
+.main-header {
+  background-image: url('../img/bg-header.jpg');
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-bottom: 20px;
+  position: relative;
+  .toggle-top-menu {
+    display: none;
+    font-size: 25px;
+    background: none;
+    color: white;
+    border: 1px solid white;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    @include translate(0,-50%);
+    @media all and (max-width: 576px) {
+      display: block;
+    }
+  }
+  @media all and (max-width: 576px) {
+    padding: 0;
+  }
+  .site-branding {
+    .the-name {
+      color: white;
+      text-transform: uppercase;
+      //text-shadow: 1px 1px 5px #373737;
+      margin: 20px 0 10px;
+      @media all and (max-width: 576px) {
+        text-align: center;
+        font-size: 26px;
+        margin: 5px;
+      }
+    }
+    .the-description {
+      color: white;
+      font-weight: normal;
+      font-size: 22px;
+      //text-shadow: 1px 1px 5px #373737;
+      margin: 10px 0;
+    }
+    .the-logo {
+      max-width: 100%;
+      margin-top: 10px;
+      @media all and (max-width: 576px) {
+        width: 150px;
+        margin: 10px auto;
+        display: block;
+      }
+    }
+  }
+  .search-widget {
+    position: relative;
+    min-height: 30px;
+    @media all and (max-width: 768px) {
+      height: 50px;
+    }
+    .main-search {
+      position: absolute;
+      top: 50%;
+      width: calc(100% - 30px);
+      @include translate(0, -50%);
+      .search-input {
+        padding: 5px 10px;
+        border: 1px solid #A9A9A9;
+        font-size: 16px;
+        width: 100%;
+      }
+      .submit-input {
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: #fff;
+        padding: 5px 10px;
+        background-color: #656565;
+        border: 2px solid #656565;
+        font-size: 14px;
+      }
+    }
+  }
+}
+// Navigation
+.main-navigation {
+  background-color: white;
+  box-shadow: 0 0 5px 0 #a0a0a0;
+  position: relative;
+  top: -20px;
+  .top-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    @media all and (max-width: 576px) {
+      width: 100%;
+    }
+    li {
+      display: inline-block;
+      @media all and (max-width: 576px) {
+        display: block;
+      }
+      a {
+        padding: 17.5px;
+        display: block;
+        text-decoration: none;
+        font-size: 16px;
+        text-transform: uppercase;
+        color: inherit;
+        font-weight: bold;
+        @media all and (max-width: 576px) {
+          font-size: 14px;
+          text-transform: capitalize;
+        }
+      }
+    }
+    .active {
+      background-color: #F1F1F1;
+      color: #507299;
+      @media all and (max-width: 576px) {
+        border-bottom: 1px solid #507299;
+      }
+    }
+  }
+  @media all and (max-width: 576px) {
+    display: block; // Provitional
+    background-color: #f1f1f1;
+    width: 80%;
+    margin: 0;
+    top: 0;
+
+  }
+}
+
