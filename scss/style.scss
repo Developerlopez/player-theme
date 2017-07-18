@@ -2,6 +2,8 @@
 @import "vendor/bootstrap/bootstrap-grid";
 // Fontawesome v4.7.0
 @import "vendor/fontawesome/font-awesome";
+// Wordpress classes
+@import "wordpress";
 // Mixins, variables and animations
 @import "mixins";
 @import "animations";
@@ -10,6 +12,19 @@
 .hidden-xs {
   @media all and (max-width: 576px) {
     display: none;
+  }
+}
+.to-left {
+  float: left;
+}
+.to-right {
+  float: right;
+}
+.clearfix {
+  &:after {
+    clear: both;
+    content: "";
+    display: block;
   }
 }
 // Body
@@ -150,7 +165,7 @@ body {
   @media all and (max-width: 576px) {
     display: block; // Provitional
     background-color: #f1f1f1;
-    width: 80%;
+    width: 100%;
     margin: 0;
     top: 0;
 
@@ -162,4 +177,78 @@ body {
   color: lighten(black, 20);
   padding-bottom: 70px;
 }
+// Main
+.main-content {
+  background-color: white;
+  position: relative;
+  top: -20px;
+  box-shadow: 0 0 5px 0 #a0a0a0;
+  @media all and (max-width: 576px) {
+    top: 0;
+  }
+  .home-content {
+    .posts-row {
+      &:nth-child(even) {
+        background-color: white;
+      }
+      &:nth-child(odd) {
+        background-color: #f5f5f5;
+      }
+      .post {
+        padding: 20px;
+        @media all and (max-width: 576px) {
+          padding: 10px;
+        }
+        .featured-image {
+          margin: 0;
+          overflow: hidden;
+          width: 100px;
+          @include translate(0, -50%);
+          position: relative;
+          top: 50%;
+          img {
+            width: 100%;
+            @include transition( all 0.3s );
+            &:hover {
+              @include scale( 1.1 );
+            }
+          }
+        }
+        .summary-post {
+          width: calc(100% - 100px);
+          padding: 0 10px;
+          .title-post {
+            h2 {
+              margin: 0 0 10px 0;
+              a {
+                color: #2b2f33;
+                font-size: 20px;
+                text-decoration: none;
+                @include transition(all 0.2s);
+                &:hover, &:active, &:focus {
+                  text-decoration: none;
+                  color: lighten( #2b2f33, 20% );
+                  outline: none;
+                }
+                @media all and (max-width: 576px) {
+                  font-size: 16px;
+                }
+              }
+            }
+          }
+          .author-post, .date-post {
+            color: #285473;
+            p {
+              font-size: 14px;
+              i {
+                font-size: 14px;
+                color: #99b1c6;
+              }
+            }
+          }
 
+        }
+      }
+    }
+  }
+}

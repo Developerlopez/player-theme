@@ -10,3 +10,14 @@
 @mixin translate($x, $y) {
    @include transform(translate($x, $y));
 }
+// scale
+@mixin scale($scale) {
+	@include transform(scale($scale));
+}
+
+@mixin transition($transition...) {
+  -moz-transition:    $transition;
+  -o-transition:      $transition;
+  -webkit-transition: $transition;
+  transition:         $transition;
+}

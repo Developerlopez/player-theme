@@ -42,6 +42,12 @@ function player_theme_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
+	/*
+	 * Add custom sizes for thumbnails
+	 */
+    add_image_size( 'player-theme-loop', 200, 200, true );
+    add_image_size( 'player-theme-single', 100, 100, true );
+
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'menu-1' => esc_html__( 'Primary', 'player-theme' ),
