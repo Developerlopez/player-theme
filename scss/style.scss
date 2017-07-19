@@ -208,6 +208,7 @@ body {
           top: 50%;
           img {
             width: 100%;
+            height: auto;
             @include transition( all 0.3s );
             &:hover {
               @include scale( 1.1 );
@@ -222,13 +223,16 @@ body {
               margin: 0 0 10px 0;
               a {
                 color: #2b2f33;
-                font-size: 20px;
+                font-size: 24px;
                 text-decoration: none;
                 @include transition(all 0.2s);
                 &:hover, &:active, &:focus {
                   text-decoration: none;
                   color: lighten( #2b2f33, 20% );
                   outline: none;
+                }
+                @media all and (max-width: 768px) {
+                  font-size: 20px;
                 }
                 @media all and (max-width: 576px) {
                   font-size: 16px;

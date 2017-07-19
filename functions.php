@@ -123,7 +123,7 @@ add_action( 'widgets_init', 'player_theme_widgets_init' );
  * Enqueue scripts and styles.
  */
 function player_theme_scripts() {
-	wp_enqueue_script( 'player-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+    wp_enqueue_script( 'player-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'player-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
@@ -136,12 +136,19 @@ function player_theme_scripts() {
 
 	// Player themes's scripts and styles.
 	wp_enqueue_style( 'player-theme-style', get_template_directory_uri() . '/css/style.css', array(), '1.0.0', 'all' );
-	wp_enqueue_script( 'player-theme-script', get_stylesheet_directory_uri() . '/js/script.js', array(), '1.0.0', true );
+	wp_enqueue_script( 'player-theme-script', get_stylesheet_directory_uri() . '/js/script.js', array( 'jquery' ), '1.0.0', true );
+    // Localize the script with new data
+    $localize_array = array(
+        'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+        'siteUrl' => get_site_url()
+    );
+    wp_localize_script( 'player-theme-script', 'wp', $localize_array );
 }
 add_action( 'wp_enqueue_scripts', 'player_theme_scripts' );
 
 /**
  * Implement the Custom Header feature.
+}
  */
 require get_template_directory() . '/inc/custom-header.php';
 
@@ -166,3 +173,8 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+/**
+ * Ajax requests.
+ */
+require get_stylesheet_directory() . '/inc/ajax-requests.php';
